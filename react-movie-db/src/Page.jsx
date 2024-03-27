@@ -1,10 +1,12 @@
+import Home from "./Pages/Home";
 import NavBar from "./components/common/NavBar";
 
 const Page = () => {
   return (
-    <div>
+    <section>
       <NavBar />
-    </div>
+      <Home />
+    </section>
   );
 };
 
