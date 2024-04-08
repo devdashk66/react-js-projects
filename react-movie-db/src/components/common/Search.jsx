@@ -24,7 +24,7 @@ const Search = () => {
           name="search"
           type="text"
           placeholder="Search..."
-          className={`border-b border-gray-300 py-1 focus:border-b-2 focus:border-blue-700 text-white transition-colors focus:outline-none peer bg-inherit w-[180px] md:w-[300px] lg:w-[400px]`}
+          className={`border-b border-gray-300 py-1 focus:border-b-2 focus:border-blue-700 text-blue-600 transition-colors focus:outline-none peer bg-inherit w-[180px] md:w-[300px] lg:w-[400px]`}
         />
       </div>
     </div>
