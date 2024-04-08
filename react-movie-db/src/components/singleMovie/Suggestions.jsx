@@ -20,9 +20,12 @@ const Suggestions = ({ id }) => {
         <CardSkeleton item={4} />
       ) : (
         <div className="flex items-start justify-center gap-3 flex-wrap">
-          {state?.data?.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))}
+          {state?.data?.map((movie) => {
+            if (movie.id === 0) {
+              return <Error key={movie.id} />;
+            }
+            return <MovieCard key={movie.id} movie={movie} />;
+          })}
           {state.error && <Error />}
         </div>
       )}

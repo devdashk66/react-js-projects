@@ -15,6 +15,9 @@ const SingleMovie = () => {
     `${import.meta.env.VITE_BASE_URL}movie_details.json?movie_id=${id}`
   );
 
+  if (state.data.id === 0) {
+    return <Error />;
+  }
   return (
     <section className="-mt-24">
       {state.loading ? (

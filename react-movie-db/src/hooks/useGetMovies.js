@@ -20,8 +20,8 @@ export const useGetMovies = (url) => {
           setState((prevState) => ({
             ...prevState,
             loading: false,
-            movie_count: data.data.movie_count,
-            data: data.data.movie ? data.data.movie : data.data.movies,
+            movie_count: data?.data?.movie_count,
+            data: data?.data?.movie ? data?.data?.movie : data?.data?.movies,
           }));
         } else {
           throw new Error("Failed to fetch movies");
