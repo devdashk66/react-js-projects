@@ -8,6 +8,7 @@ import SingleGenre from "./Pages/SingleGenre";
 import SingleMovie from "./Pages/SingleMovie";
 import Footer from "./components/common/Footer";
 import NavBar from "./components/common/NavBar";
+import NotFound from "./components/common/NotFound";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
 
         <Route path="/genres/" element={<Genre />} />
         <Route path="/genre/:query" element={<SingleGenre />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
