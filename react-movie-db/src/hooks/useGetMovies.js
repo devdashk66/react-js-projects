@@ -31,6 +31,7 @@ export const useGetMovies = (url) => {
           ...prevState,
           loading: false,
           error: error.message || "Something went wrong",
+          data: [],
         }));
       }
     };

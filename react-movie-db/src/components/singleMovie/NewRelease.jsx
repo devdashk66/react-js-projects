@@ -1,4 +1,5 @@
 import { useGetMovies } from "../../hooks/useGetMovies";
+import Error from "../common/Error";
 import MovieCard from "../common/MovieCard";
 import CardSkeleton from "../loading/CardSkeleton";
 
@@ -20,6 +21,7 @@ const NewRelease = () => {
         {state?.data?.slice(0, 12).map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
+        {state.error && <Error />}
       </div>
     </div>
   );

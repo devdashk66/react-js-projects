@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useGetMovies } from "../../hooks/useGetMovies";
+import Error from "../common/Error";
 import MovieCard from "../common/MovieCard";
 import CardSkeleton from "../loading/CardSkeleton";
 
@@ -22,6 +23,7 @@ const Suggestions = ({ id }) => {
           {state?.data?.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
+          {state.error && <Error />}
         </div>
       )}
     </div>

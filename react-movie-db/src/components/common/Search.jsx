@@ -4,30 +4,28 @@ import { useNavigate } from "react-router-dom";
 const Search = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  const handleSearch = (e) => {
+  const handleChange = (e) => {
     setQuery(e.target.value);
-    navigate(`/${e.target.value}`);
   };
+
+  const handleSearch = () => {
+    if (event.key === "Enter") {
+      navigate(`/${query}`);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center">
       <div className="relative">
         <input
-          onChange={handleSearch}
+          onKeyPress={handleSearch}
+          onChange={handleChange}
           id="search"
           name="search"
           type="text"
-          className={`border-b border-gray-300 py-1 focus:border-b-2 focus:border-blue-700 ${
-            query && "border-blue-700"
-          } transition-colors focus:outline-none peer bg-inherit w-[180px] md:w-[300px] lg:w-[400px]`}
+          placeholder="Search..."
+          className={`border-b border-gray-300 py-1 focus:border-b-2 focus:border-blue-700 text-white transition-colors focus:outline-none peer bg-inherit w-[180px] md:w-[300px] lg:w-[400px]`}
         />
-        <label
-          htmlFor="search"
-          className={`absolute left-0 top-1 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-600 ${
-            query && "-top-4 text-xs text-blue-600"
-          }`}
-        >
-          Search...
-        </label>
       </div>
     </div>
   );

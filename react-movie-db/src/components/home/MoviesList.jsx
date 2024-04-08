@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { useGetMovies } from "../../hooks/useGetMovies";
+import Error from "../common/Error";
 import MovieCard from "../common/MovieCard";
 import CardSkeleton from "../loading/CardSkeleton";
 
@@ -16,7 +17,7 @@ const MoviesList = ({ genere }) => {
         </h2>
         <Link
           to={`/genre/${genere}`}
-          className="bg-blue-600 text-xs px-2 py-1 rounded-sm hover:text-blue-600 hover:bg-transparent hover:border-blue-600 hover:border duration-200 border border-transparent"
+          className="bg-blue-600 text-xs px-2 py-1 rounded-sm hover:text-blue-600 hover:bg-transparent hover:border-blue-600 hover:border duration-200 border border-transparent text-white"
         >
           View all
         </Link>
@@ -27,6 +28,7 @@ const MoviesList = ({ genere }) => {
         {state?.data?.slice(0, 6).map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
+        {state.error && <Error />}
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export const Hero = () => {
       import.meta.env.VITE_BASE_URL
     }list_movies.json?sort_by=year&order_by=desc`
   );
-
+  console.log(state);
   if (state.error) {
     return <Error error="Somthing went wrong" />;
   }

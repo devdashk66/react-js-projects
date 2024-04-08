@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import ReactPaginate from "react-paginate";
 import { useParams } from "react-router-dom";
+import Error from "../components/common/Error";
 import MovieCard from "../components/common/MovieCard";
+import FriendsAndFamily from "../components/home/FriendsAndFamily";
 import MovieGenreList from "../components/home/MovieGenreList";
 import CardSkeleton from "../components/loading/CardSkeleton";
-import { useGetMovies } from "../hooks/useGetMovies";
 import NewRelease from "../components/singleMovie/NewRelease";
-import FriendsAndFamily from "../components/home/FriendsAndFamily";
+import { useGetMovies } from "../hooks/useGetMovies";
 
 const SingleGenre = () => {
   const [page, setPage] = useState(1);
@@ -43,11 +44,12 @@ const SingleGenre = () => {
                 {state?.data?.map((movie) => (
                   <MovieCard key={movie.id} movie={movie} />
                 ))}
+                {state.error && <Error />}
               </div>
             )}
 
             {/* Pagination */}
-            {state && (
+            {state.movie_count > 0 && (
               <ReactPaginate
                 pageCount={Math.ceil(state.movie_count / 50)} // Assuming 50 movies per page
                 pageRangeDisplayed={2} // Number of pages shown in the pagination bar

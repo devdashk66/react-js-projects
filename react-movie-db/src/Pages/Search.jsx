@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import ReactPaginate from "react-paginate";
 import { useParams } from "react-router-dom";
-import Error from "../components/common/Error";
 import MovieCard from "../components/common/MovieCard";
-import useDebounce from "../hooks/useDebounce";
+import MovieNotFound from "../components/common/MovieNotFound";
+import CardSkeleton from "../components/loading/CardSkeleton";
 import { useGetMovies } from "../hooks/useGetMovies";
 
 const Search = () => {
@@ -13,37 +13,41 @@ const Search = () => {
   const handlePageClick = (selectedPage) => {
     setPage(selectedPage + 1); // react-paginate uses zero-based indexing
   };
-  const debouncedValue = useDebounce(query, 1000);
 
   const { state } = useGetMovies(
     `${
       import.meta.env.VITE_BASE_URL
-    }list_movies.json?page=${page}&query_term=${debouncedValue}`
+    }list_movies.json?page=${page}&query_term=${query}`
   );
 
   useEffect(() => {
     return () => {
       setPage(1);
     };
-  }, [debouncedValue]);
+  }, [query]);
 
-  if (state.loading) {
-    return <Error error="loading..." />;
-  }
   return (
     <div className="px-12">
-      <h1 className="mb-5">
-        Showing result for: <span className="text-lg uppercase">{query}</span>
-      </h1>
-
-      <div className="flex items-center justify-evenly gap-3 flex-wrap">
-        {state?.data?.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+      <div className="mb-5 flex">
+        <h2 className="text-xl my-3 pb-1 border-b border-blue-600">
+          Showing result for:{" "}
+          <span className="text-lg uppercase font-bold ">{query}</span>
+        </h2>
       </div>
 
+      {state.loading ? (
+        <CardSkeleton item={20} />
+      ) : (
+        <div className="flex items-center justify-evenly gap-3 flex-wrap">
+          {state?.data?.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+          {state?.movie_count === 0 && <MovieNotFound />}
+        </div>
+      )}
+
       {/* Pagination */}
-      {state && (
+      {state?.movie_count > 0 && (
         <ReactPaginate
           pageCount={Math.ceil(state.movie_count / 20)} // Assuming 50 movies per page
           pageRangeDisplayed={2} // Number of pages shown in the pagination bar

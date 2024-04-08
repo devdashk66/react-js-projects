@@ -16,7 +16,10 @@ const FriendsAndFamily = () => {
           </p>
           <p className="text-5xl uppercase">Ultra HD 4K</p>
           <div className="flex">
-            <Link className="rounded-full py-3 px-8 bg-blue-600" to="/category">
+            <Link
+              className="rounded-full text-white py-3 px-8 bg-blue-600"
+              to="/category"
+            >
               Download Now
             </Link>
           </div>

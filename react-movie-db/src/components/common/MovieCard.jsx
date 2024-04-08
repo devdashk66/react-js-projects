@@ -12,12 +12,12 @@ const MovieCard = ({ movie }) => {
     >
       <div className="w-full min-h-44 lg:min-h-80 lg:max-h-80 overflow-hidden bg-cover bg-gray-700 relative">
         <img
-          className="object-cover w-full h-full"
+          className="object-cover w-full min-h-44 lg:min-h-80 lg:max-h-80"
           src={movie.large_cover_image ?? movie.medium_cover_image}
           alt={movie.title}
           loading="lazy"
         />
-        <span className="text-[10px] absolute bottom-1 right-0 bg-blue-600 bg-opacity-50 px-1">
+        <span className="text-[10px] absolute bottom-1 text-white right-0 bg-blue-600 bg-opacity-50 px-1">
           {movie.runtime} min
         </span>
       </div>
