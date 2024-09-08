@@ -19,14 +19,15 @@ const Search = () => {
   useEffect(() => {
     if (debouncedQuery) {
       navigate(`/?query=${debouncedQuery}`);
-      if (!query) {
-        navigate(`/movies`);
-      }
+      setDebouncedQuery("");
     }
   }, [debouncedQuery, navigate, query]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
+    if (!e.target.value) {
+      navigate(`/movies`);
+    }
   };
 
   return (
