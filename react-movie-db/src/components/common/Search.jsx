@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Search = () => {
-  const [query, setQuery] = useState("");
+  const [searchParams] = useSearchParams();
+  const queryValue = searchParams.get("query");
+
+  const [query, setQuery] = useState(queryValue ?? "");
   const [debouncedQuery, setDebouncedQuery] = useState(query);
   const navigate = useNavigate();
 
@@ -34,6 +37,7 @@ const Search = () => {
     <div className="flex items-center justify-center">
       <div className="relative">
         <input
+          value={query}
           onChange={handleChange}
           id="search"
           name="search"
