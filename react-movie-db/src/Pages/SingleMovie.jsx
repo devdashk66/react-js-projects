@@ -49,7 +49,7 @@ const SingleMovie = () => {
                     {state?.data?.genres?.map((genre) => (
                       <span key={genre}>
                         <Link
-                          className="duration-200 hover:text-blue-600"
+                          className="duration-200 hover:text-primary"
                           to={`/genre/${genre.toLowerCase()}`}
                         >
                           {genre}
@@ -61,15 +61,15 @@ const SingleMovie = () => {
 
                   <div className="flex  justify-evenly lg:justify-start lg:gap-12 items-center">
                     <span className="flex items-center gap-2">
-                      <FaRegCalendarAlt className="text-blue-600" />{" "}
+                      <FaRegCalendarAlt className="text-primary" />{" "}
                       {state?.data?.year}
                     </span>
                     <span className="flex items-center gap-2">
-                      <FaRegClock className="text-blue-600" />{" "}
+                      <FaRegClock className="text-primary" />{" "}
                       {state?.data?.runtime}
                     </span>
                     <span className="flex items-center gap-2">
-                      <IoIosStar className="text-blue-600" />{" "}
+                      <IoIosStar className="text-primary" />{" "}
                       {state?.data?.rating}
                     </span>
                   </div>
@@ -81,7 +81,7 @@ const SingleMovie = () => {
                   <div className="mt-3">
                     {state?.data?.torrents?.slice(0, 1)?.map((item) => (
                       <a
-                        className="uppercase px-7 py-3  bg-blue-600 inline rounded text-center border border-transparent hover:border-blue-600 hover:bg-transparent dura"
+                        className="uppercase px-7 py-3  bg-primary inline rounded text-center border border-transparent hover:border-primary hover:bg-transparent duration-300"
                         key={item.hash}
                         target="_blank"
                         href={item.url}

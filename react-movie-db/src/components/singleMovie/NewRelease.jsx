@@ -12,7 +12,7 @@ const NewRelease = () => {
   return (
     <div className="mt-5 mx-5">
       <div className="flex">
-        <h2 className="font-bold text-xl my-3 pb-1 border-b border-blue-600">
+        <h2 className="font-bold text-xl my-3 pb-1 border-b border-primary">
           New Releases
         </h2>
       </div>

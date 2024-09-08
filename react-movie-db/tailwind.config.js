@@ -12,6 +12,10 @@ export default {
       fontFamily: {
         montserrat: ['"Montserrat", sans-serif'],
       },
+      colors: {
+        primary: "#8a82f4",
+        // primary: "#82bd69",
+      },
     },
   },
   presets: [keepPreset],

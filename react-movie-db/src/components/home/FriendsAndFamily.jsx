@@ -5,7 +5,7 @@ const FriendsAndFamily = () => {
     <section className="dark:static-section-bg-dark w-screen mt-12">
       <section className="p-5 flex flex-col gap-5 md:flex-row md:items-center">
         <div className="flex flex-col gap-5 md:w-2/4">
-          <p className="w-20 border-b-2 border-blue-600"></p>
+          <p className="w-20 border-b-2 border-primary"></p>
           <h1 className="text-4xl">
             Live Movie & TV Shows For Friends & Family
           </h1>
@@ -17,8 +17,8 @@ const FriendsAndFamily = () => {
           <p className="text-5xl uppercase">Ultra HD 4K</p>
           <div className="flex">
             <Link
-              className="rounded-full text-white py-3 px-8 bg-blue-600"
-              to="/category"
+              className="rounded-full text-white py-3 px-8 bg-primary border-2 border-primary hover:bg-transparent duration-300"
+              to="/genre/all"
             >
               Download Now
             </Link>

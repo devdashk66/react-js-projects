@@ -34,7 +34,7 @@ const ThemeSwitcher = () => {
         <button
           onClick={toggleTheme}
           type="button"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-1 font-medium p-2 w-8 h-8 text-center rounded-full"
+          className="text-white bg-primary hover:bg-primary focus:ring-1 font-medium p-2 w-8 h-8 text-center rounded-full"
         >
           <IoMdSunny />
         </button>
@@ -42,7 +42,7 @@ const ThemeSwitcher = () => {
         <button
           onClick={toggleTheme}
           type="button"
-          className="text-blue-700 bg-white hover:bg-gray-300 focus:ring-1 font-medium p-2 w-8 h-8 text-center rounded-full"
+          className="text-primary bg-white hover:bg-gray-300 focus:ring-1 font-medium p-2 w-8 h-8 text-center rounded-full"
         >
           <FaMoon />
         </button>

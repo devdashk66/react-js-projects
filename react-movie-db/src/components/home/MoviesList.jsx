@@ -12,12 +12,12 @@ const MoviesList = ({ genere }) => {
   return (
     <section className="mt-5 mx-5">
       <div className="flex items-center justify-between py-3 text-xl">
-        <h2 className="font-bold text-xl my-3 pb-1 border-b border-blue-600">
-          Genere: <span className="uppercase">{genere}</span>
+        <h2 className="font-bold text-xl my-3 pb-1 border-b border-primary">
+          Genere: <span className="uppercase text-primary">{genere}</span>
         </h2>
         <Link
           to={`/genre/${genere}`}
-          className="bg-blue-600 text-xs px-2 py-1 rounded-sm hover:text-blue-600 hover:bg-transparent hover:border-blue-600 hover:border duration-200 border border-transparent text-white"
+          className="bg-primary text-xs px-2 py-1 rounded-sm hover:text-primary hover:bg-transparent hover:border-primary hover:border duration-200 border border-transparent text-white"
         >
           View all
         </Link>
